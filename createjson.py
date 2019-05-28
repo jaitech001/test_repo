@@ -51,11 +51,14 @@ def xlsParse(xlsfile):
                     attributeList[key2]=block2
                     namespaceMappings[key1]['metricMappings'].update(attributeList)
                     
-    # Parse the DICT into JSON
-    out = json.dumps(namespaceMappings, indent=4)
-    print(out)
-    # Save the JSON into file
+    # Parse the XLS into JSON
+    out = json.dumps(store, indent=4)
+    out1 = json.dumps(namespaceMappings, indent=4)
+#    print(out1)
+    # Save the JSON
     f = open( 'xlsdata.json', 'w')
     f.write(out)
+    f1 = open( 'test1.json', 'w')
+    f1.write(out1)
 
 xlsParse('test1.xlsx')
